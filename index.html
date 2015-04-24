@@ -7,6 +7,92 @@
   </head>
   <body>
 
+    <div id="main">
+      <form id="item-form">
+        <div>
+          <label for="title">Title</label>
+          <input id="title" type="text" />
+        </div>
+        <div>
+          <label for="description">Description</label>
+          <textarea id="description"></textarea>
+        </div>
+        <div>
+          <label for="notes">Internal Notes</label>
+          <textarea id="notes"></textarea>
+        </div>
+        <div>
+          <label for="materials">Materials</label>
+          <select id="materials">
+            <option value="value1">Value 1</option> 
+            <option value="value2" selected>Value 2</option>
+            <option value="value3">Value 3</option>
+          </select>
+          <input type="checkbox" name="restricted" id="restricted" value="restricted" />Check this box if listing contains or may contain restricted materials
+        </div>
+        <div>
+          <label>Measurements</label>
+          <label>Measurements are in: </label>          
+          <input type = "radio"
+                 name = "measurement-system"
+                 id = "inches"
+                 value = "in"
+                 checked = "checked" />
+          <label for = "inches">Inches (in)</label>
+          
+          <input type = "radio"
+                 name = "measurement-system"
+                 id = "centimeters"
+                 value = "cm" />
+          <label for = "centimeters">Centimeters (cm)</label>
+
+          <label>Measured item is: </label>          
+          <input type = "radio"
+                 name = "measurement-shape"
+                 id = "rectangular"
+                 value = "rectangle" />
+          <label for = "rectangular">Rectangular</label>
+          
+          <input type = "radio"
+                 name = "measurement-shape"
+                 id = "circular"
+                 value = "circle" />
+          <label for = "circular">Circular</label>
+        </div>
+        <div>
+          <!-- TODO: Add numeric measurements here -->
+        </div>
+        <div>
+          <label>Condition (Select one)</label>          
+          <input type = "radio"
+                 name = "condition"
+                 id = "distressed"
+                 value = "distressed" />
+          <label for = "distressed">Distressed</label>
+          
+          <input type = "radio"
+                 name = "condition"
+                 id = "fair"
+                 value = "fair" />
+          <label for = "fair">Fair</label>
+          
+          <input type = "radio"
+                 name = "condition"
+                 id = "good"
+                 value = "good" />
+          <label for = "good">Good</label>
+          
+          <input type = "radio"
+                 name = "condition"
+                 id = "excellent"
+                 value = "excellent" />
+          <label for = "excellent">Excellent</label>
+        </div>
+        <div>
+          <button id="save">Save</button>
+        </div>
+      </form>
+    </div>
 
     <script src="js/lib/jquery-1.11.2.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
