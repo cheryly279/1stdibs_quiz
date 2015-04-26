@@ -40,7 +40,7 @@
             </div>
             <label>Measurements</label>
             <div class="form-group">
-            <label>Measurements are in: </label>
+              Measurements are in: 
               <label class="radio-inline">
                 <input type="radio" name="unit" id="inches" value="in" checked>
                 Inches (in)
@@ -51,7 +51,7 @@
               </label>
             </div>
             <div class="form-group">
-              <label>Measured item is: </label>
+              Measured item is: 
               <label class="radio-inline">
                 <input type="radio" name="shape" id="rectangular" value="rectangle">
                 Rectangular
@@ -61,11 +61,40 @@
                 Circular
               </label>
             </div>
-            <div class="form-group">
-              <!-- TODO: Add numeric measurements here -->
+            <div class="row">
+              <div class="form-group col-xs-6">
+                <label for="length">Length:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon" id="length">in.</span>
+                </div>
+              </div>
+              <div class="form-group col-xs-6">
+                <label for="depth">Depth:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon" id="depth">in.</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-xs-6">
+                <label for="height">Height:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon" id="height">in.</span>
+                </div>
+              </div>
+              <div class="form-group col-xs-6">
+                <label for="diameter">Diameter:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon" id="diameter">in.</span>
+                </div>
+              </div>
             </div>
             <div class="form-group">
-              <label>Condition (Select one)</label>  
+              <label>Condition (Select one)</label><br />  
               <label class="radio-inline">
                 <input type="radio" name="condition" id="distressed" value="distressed">
                 Distressed
