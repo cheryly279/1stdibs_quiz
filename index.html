@@ -9,116 +9,118 @@
   </head>
   <body>
 
-    <div id="main" class="container">
-      <div class="row">
-        <div class="col-xs-8">
-          <form id="item-form">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input id="title" type="text" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="description">Description</label>
-              <textarea id="description" class="form-control" rows="10"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="notes">Internal Notes</label>
-              <textarea id="notes" class="form-control"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="materials">Materials</label>
-              <select id="materials" class="form-control">
-                <option value="value1">Value 1</option> 
-                <option value="value2" selected>Value 2</option>
-                <option value="value3">Value 3</option>
-              </select>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" name="restricted" id="restricted" value="restricted">Check this box if listing contains or may contain restricted materials
+    <script type="text/template" id="edit-item-template">
+      <div id="main" class="container">
+        <div class="row">
+          <div class="col-xs-8">
+            <form id="item-form">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" type="text" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" rows="10"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="notes">Internal Notes</label>
+                <textarea id="notes" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="materials">Materials</label>
+                <select id="materials" class="form-control">
+                  <option value="value1">Value 1</option> 
+                  <option value="value2" selected>Value 2</option>
+                  <option value="value3">Value 3</option>
+                </select>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="restricted" id="restricted" value="restricted">Check this box if listing contains or may contain restricted materials
+                  </label>
+                </div>
+              </div>
+              <label>Measurements</label>
+              <div class="form-group">
+                Measurements are in: 
+                <label class="radio-inline">
+                  <input type="radio" name="unit" id="inches" value="in" checked>
+                  Inches (in)
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="unit" id="centimeters" value="cm">
+                  Centimeters (cm)
                 </label>
               </div>
-            </div>
-            <label>Measurements</label>
-            <div class="form-group">
-              Measurements are in: 
-              <label class="radio-inline">
-                <input type="radio" name="unit" id="inches" value="in" checked>
-                Inches (in)
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="unit" id="centimeters" value="cm">
-                Centimeters (cm)
-              </label>
-            </div>
-            <div class="form-group">
-              Measured item is: 
-              <label class="radio-inline">
-                <input type="radio" name="shape" id="rectangular" value="rectangle">
-                Rectangular
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="shape" id="circular" value="circle">
-                Circular
-              </label>
-            </div>
-            <div class="row">
-              <div class="form-group col-xs-6">
-                <label for="length">Length:</label>
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <span class="input-group-addon" id="length">in.</span>
+              <div class="form-group">
+                Measured item is: 
+                <label class="radio-inline">
+                  <input type="radio" name="shape" id="rectangular" value="rectangle">
+                  Rectangular
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="shape" id="circular" value="circle">
+                  Circular
+                </label>
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-6">
+                  <label for="length">Length:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon" id="length">in.</span>
+                  </div>
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="depth">Depth:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon" id="depth">in.</span>
+                  </div>
                 </div>
               </div>
-              <div class="form-group col-xs-6">
-                <label for="depth">Depth:</label>
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <span class="input-group-addon" id="depth">in.</span>
+              <div class="row">
+                <div class="form-group col-xs-6">
+                  <label for="height">Height:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon" id="height">in.</span>
+                  </div>
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="diameter">Diameter:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon" id="diameter">in.</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-xs-6">
-                <label for="height">Height:</label>
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <span class="input-group-addon" id="height">in.</span>
-                </div>
+              <div class="form-group">
+                <label>Condition (Select one)</label><br />  
+                <label class="radio-inline">
+                  <input type="radio" name="condition" id="distressed" value="distressed">
+                  Distressed
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="condition" id="fair" value="fair">
+                  Fair
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="condition" id="good" value="good">
+                  Good
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="condition" id="excellent" value="excellent">
+                  Excellent
+                </label>
               </div>
-              <div class="form-group col-xs-6">
-                <label for="diameter">Diameter:</label>
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <span class="input-group-addon" id="diameter">in.</span>
-                </div>
+              <div>
+                <button id="save" class="btn btn-primary">Save</button>
               </div>
-            </div>
-            <div class="form-group">
-              <label>Condition (Select one)</label><br />  
-              <label class="radio-inline">
-                <input type="radio" name="condition" id="distressed" value="distressed">
-                Distressed
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="condition" id="fair" value="fair">
-                Fair
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="condition" id="good" value="good">
-                Good
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="condition" id="excellent" value="excellent">
-                Excellent
-              </label>
-            </div>
-            <div>
-              <button id="save" class="btn btn-primary">Save</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </script>
 
     <script src="js/lib/jquery-1.11.2.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
