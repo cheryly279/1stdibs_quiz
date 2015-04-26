@@ -9,8 +9,17 @@
   </head>
   <body>
 
+    <div id="items">
+    </div>
+
+    <script type="text/template" id="item-template">
+      <div>
+        <%= title %> derp.
+      </div>
+    </script>
+
     <script type="text/template" id="edit-item-template">
-      <div id="main" class="container">
+      <div id="edit-item" class="container">
         <div class="row">
           <div class="col-xs-8">
             <form id="item-form">
@@ -126,5 +135,11 @@
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/models/item.js"></script>
+    <script src="js/collections/items.js"></script>
+    <script src="js/views/item.js"></script>
+    <script src="js/views/items.js"></script>
+    <script src="js/app.js"></script>
+
   </body>
 </html>

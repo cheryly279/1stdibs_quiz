@@ -2,10 +2,10 @@
 
 var app = app || {};
 
-app.ItemEditView = Backbone.View.extend({
+app.ItemView = Backbone.View.extend({
   tagName: 'div',
-  className: 'editContainer',
-  template: _.template($('#edit-item-template').html()),
+  className: 'itemContainer',
+  template: _.template($('#item-template').html()),
 
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
