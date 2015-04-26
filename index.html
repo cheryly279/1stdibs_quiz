@@ -38,63 +38,50 @@
                 </label>
               </div>
             </div>
+            <label>Measurements</label>
             <div class="form-group">
-              <label>Measurements</label>
-              <label>Measurements are in: </label>          
-              <input type = "radio"
-                     name = "measurement-system"
-                     id = "inches"
-                     value = "in"
-                     checked = "checked" />
-              <label for = "inches">Inches (in)</label>
-              
-              <input type = "radio"
-                     name = "measurement-system"
-                     id = "centimeters"
-                     value = "cm" />
-              <label for = "centimeters">Centimeters (cm)</label>
-
-              <label>Measured item is: </label>          
-              <input type = "radio"
-                     name = "measurement-shape"
-                     id = "rectangular"
-                     value = "rectangle" />
-              <label for = "rectangular">Rectangular</label>
-              
-              <input type = "radio"
-                     name = "measurement-shape"
-                     id = "circular"
-                     value = "circle" />
-              <label for = "circular">Circular</label>
+            <label>Measurements are in: </label>
+              <label class="radio-inline">
+                <input type="radio" name="unit" id="inches" value="in" checked>
+                Inches (in)
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="unit" id="centimeters" value="cm">
+                Centimeters (cm)
+              </label>
+            </div>
+            <div class="form-group">
+              <label>Measured item is: </label>
+              <label class="radio-inline">
+                <input type="radio" name="shape" id="rectangular" value="rectangle">
+                Rectangular
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="shape" id="circular" value="circle">
+                Circular
+              </label>
             </div>
             <div class="form-group">
               <!-- TODO: Add numeric measurements here -->
             </div>
             <div class="form-group">
-              <label>Condition (Select one)</label>          
-              <input type = "radio"
-                     name = "condition"
-                     id = "distressed"
-                     value = "distressed" />
-              <label for = "distressed">Distressed</label>
-              
-              <input type = "radio"
-                     name = "condition"
-                     id = "fair"
-                     value = "fair" />
-              <label for = "fair">Fair</label>
-              
-              <input type = "radio"
-                     name = "condition"
-                     id = "good"
-                     value = "good" />
-              <label for = "good">Good</label>
-              
-              <input type = "radio"
-                     name = "condition"
-                     id = "excellent"
-                     value = "excellent" />
-              <label for = "excellent">Excellent</label>
+              <label>Condition (Select one)</label>  
+              <label class="radio-inline">
+                <input type="radio" name="condition" id="distressed" value="distressed">
+                Distressed
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="condition" id="fair" value="fair">
+                Fair
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="condition" id="good" value="good">
+                Good
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="condition" id="excellent" value="excellent">
+                Excellent
+              </label>
             </div>
             <div>
               <button id="save" class="btn btn-primary">Save</button>
