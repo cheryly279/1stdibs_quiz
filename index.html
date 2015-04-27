@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>1st Dibs Quiz</title>
     <link rel="stylesheet" href="css/1stdibs.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -10,6 +11,17 @@
   <body>
 
     <div id="items">
+      <form id="addItem" action="#">
+        <div>
+          <input id="title" type="text" />
+          <button id="add">Add</button>
+        </div>
+      </form>
+
+      <!--
+      <script type="text/template" id="add-item-template">
+      </script>
+      -->
     </div>
 
     <script type="text/template" id="item-template">
@@ -17,6 +29,9 @@
         <%= title %> derp.
       </div>
     </script>
+
+    <div id="edit-item">
+    </div>
 
     <script type="text/template" id="edit-item-template">
       <div id="edit-item" class="container">

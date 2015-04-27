@@ -7,5 +7,6 @@ var app = app || {};
 
 // The collection of items is backed by a mongo database accessed via a REST api.
 app.ItemList = Backbone.Collection.extend({
-  model: app.Item
+  model: app.Item,
+  url: 'http://localhost:4711/api/items'
 });

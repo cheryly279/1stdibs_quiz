@@ -7,6 +7,15 @@ app.ItemView = Backbone.View.extend({
   className: 'itemContainer',
   template: _.template($('#item-template').html()),
 
+  events: {
+    'click .delete': 'deleteItem'
+  },
+
+  deleteItem: function() {
+    this.model.destroy();
+    this.remove();
+  },
+
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
     return this;

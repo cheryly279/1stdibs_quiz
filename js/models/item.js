@@ -24,7 +24,9 @@ app.Item = Backbone.Model.extend({
     condition: {
       description: ''
     }
-  }
+  },
+
+  idAttribute: '_id'
 });
 
 
