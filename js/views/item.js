@@ -5,10 +5,32 @@ var app = app || {};
 app.ItemView = Backbone.View.extend({
   tagName: 'div',
   className: 'itemContainer',
-  template: _.template($('#item-template').html()),
+  itemTemplate: _.template($('#item-template').html()),
 
   events: {
-    'click .delete': 'deleteItem'
+    'click .edit': 'editItem',
+    'click .delete': 'deleteItem',
+    'click .save': 'saveItem'
+  },
+
+  editItem: function(e) {
+    this.$editItem = this.$('.edit-item');
+
+    e.preventDefault();
+    this.$editItem.toggle();
+  },
+
+  saveItem: function(e) {
+    this.$editItem = this.$('.edit-item');
+
+    e.preventDefault();
+    this.model.set({title: this.$('.title').val()});
+    this.model.save();
+
+    // TODO: check for error?
+
+    this.$editItem.toggle();
+    this.render();
   },
 
   deleteItem: function() {
@@ -17,7 +39,7 @@ app.ItemView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.html(this.itemTemplate(this.model.toJSON()));
     return this;
   }
 });
