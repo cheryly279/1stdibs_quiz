@@ -6,7 +6,6 @@ app.ItemsView = Backbone.View.extend({
   el: '#items',
 
   initialize: function() {
-    console.log('in ItemsView initializer');
     this.collection = new app.ItemList();
     this.collection.fetch({reset: true});
     this.render();
@@ -20,8 +19,6 @@ app.ItemsView = Backbone.View.extend({
   },
 
   addItem: function(e) {
-    console.log('here?');
-
     e.preventDefault();
 
     var formData = {};
@@ -48,20 +45,16 @@ app.ItemsView = Backbone.View.extend({
       }
     });
 
-    console.log(formData);
     this.collection.create(formData);
-    console.log('created?');
   },
 
   render: function() {
-    console.log('in render');
     this.collection.each(function(item) {
       this.renderItem(item);
     }, this);
   },
 
   renderItem: function(item) {
-    console.log('in render item');
     var itemView = new app.ItemView({
       model: item
     });
