@@ -6,6 +6,13 @@ app.ItemView = Backbone.View.extend({
   tagName: 'div',
   className: 'itemContainer',
   itemTemplate: _.template($('#item-template').html()),
+  materialsTemplate: _.template($('#materials-template').html()),
+  conditionsTemplate: _.template($('#conditions-template').html()),
+
+  initialize: function(options) {
+    this.materialsList = options.materialsList;
+    this.conditionsList = options.conditionsList;
+  },
 
   events: {
     'click .edit': 'editItem',
@@ -58,7 +65,7 @@ app.ItemView = Backbone.View.extend({
 
     this.model.set(formData);
     this.model.save();
-    
+
     this.$editItem.toggle();
     this.render();
   },
@@ -96,6 +103,8 @@ app.ItemView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.itemTemplate(this.model.toJSON()));
+    this.$('#materialsContainer').html(this.materialsTemplate({materialsList: this.materialsList}));
+    this.$('#conditionsContainer').html(this.conditionsTemplate({conditionsList: this.conditionsList}));
     return this;
   }
 });

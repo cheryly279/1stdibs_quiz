@@ -41,18 +41,14 @@
                 <label for="dealerInternalNotes">Internal Notes</label>
                 <textarea id="dealerInternalNotes" name="dealerInternalNotes" class="form-control"><%= dealerInternalNotes %></textarea>
               </div>
-              <div class="form-group">
-                <label for="materials">Materials</label>
-                <select id="materials" name="materials" class="form-control">
-                  <option value="value1">Value 1</option> 
-                  <option value="value2" selected>Value 2</option>
-                  <option value="value3">Value 3</option>
-                </select>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="restricted" id="restricted" <% if(material.restricted) { %> checked <% } %>>Check this box if listing contains or may contain restricted materials
-                  </label>
-                </div>
+
+              <div class="form-group" id="materialsContainer">
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="restricted" id="restricted" <% if(material.restricted) { %> checked <% } %>>Check this box if listing contains or may contain restricted materials
+                </label>
               </div>
               <label>Measurements</label>
               <div class="form-group">
@@ -109,25 +105,10 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label>Condition (Select one)</label><br />
-                <label class="radio-inline">
-                  <input type="radio" name="condition" id="distressed" value="distressed">
-                  Distressed
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="condition" id="fair" value="fair">
-                  Fair
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="condition" id="good" value="good">
-                  Good
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="condition" id="excellent" value="excellent">
-                  Excellent
-                </label>
+
+              <div class="form-group" id="conditionsContainer">
               </div>
+              
               <div>
                 <button class="save" class="btn btn-primary">Save</button>
               </div>
@@ -135,6 +116,26 @@
           </div>
         </div>
       </div>      
+    </script>
+
+    <script type="text/template" id="materials-template">
+      <label for="materials">Materials</label>
+      <select id="materials" name="materials" class="form-control">
+        <% for(var i = 0, materialsLength = materialsList.length; i < materialsLength; i++) { %>
+          <option value="<%= materialsList[i] %>"><%= materialsList[i] %></option>
+        <% } %>
+      </select>
+    </script>
+
+    <!-- need to store current condition in a variable, add proper capitalization -->
+    <script type="text/template" id="conditions-template">
+      <label>Condition (Select one)</label><br />
+      <% for(var i = 0, conditionsLength = conditionsList.length; i < conditionsLength; i++) { %>
+        <label class="radio-inline">
+          <input type="radio" name="condition" id="<%= conditionsList[i] %>" value="<%= conditionsList[i] %>">
+          <%= conditionsList[i] %>
+        </label>
+      <% } %>
     </script>
 
     <script src="js/lib/jquery-1.11.2.min.js"></script>
