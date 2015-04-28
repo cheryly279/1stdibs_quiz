@@ -10,7 +10,9 @@ app.ItemView = Backbone.View.extend({
   events: {
     'click .edit': 'editItem',
     'click .delete': 'deleteItem',
-    'click .save': 'saveItem'
+    'click .save': 'saveItem',
+    'change [name=shape]': 'updateShape',
+    'change [name=unit]': 'updateUnit'
   },
 
   editItem: function(e) {
@@ -31,6 +33,32 @@ app.ItemView = Backbone.View.extend({
 
     this.$editItem.toggle();
     this.render();
+  },
+
+  updateShape: function(e) {
+    var $clicked = $(e.target);
+
+    if ($clicked.val() === 'rectangle') {
+      this.$('.length input').prop('disabled', false);
+      this.$('.height input').prop('disabled', false);
+      this.$('.depth input').prop('disabled', false);
+      this.$('.diameter input').prop('disabled', true);
+    }
+    else if ($clicked.val() === 'circle') {
+      this.$('.length input').prop('disabled', true);
+      this.$('.height input').prop('disabled', true);
+      this.$('.depth input').prop('disabled', true);
+      this.$('.diameter input').prop('disabled', false);
+    }
+  },
+
+  updateUnit: function(e) {
+    var $clicked = $(e.target);
+
+    this.$('.length span').text($clicked.val());
+    this.$('.height span').text($clicked.val());
+    this.$('.depth span').text($clicked.val());
+    this.$('.diameter span').text($clicked.val());
   },
 
   deleteItem: function() {
