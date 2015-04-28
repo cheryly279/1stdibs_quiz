@@ -16,21 +16,49 @@ app.ItemView = Backbone.View.extend({
   },
 
   editItem: function(e) {
-    this.$editItem = this.$('.edit-item');
+    this.$editItem = this.$('#edit-item');
 
     e.preventDefault();
     this.$editItem.toggle();
   },
 
   saveItem: function(e) {
-    this.$editItem = this.$('.edit-item');
-
+    this.$editItem = this.$('#edit-item');
+    this.$itemForm = this.$('#item-form');
     e.preventDefault();
-    this.model.set({title: this.$('.title').val()});
+
+    var formArray = this.$itemForm.serializeArray(),
+        formLength = formArray.length,
+        currentObj = {},
+        formData = {};
+
+    console.dir(formArray);
+
+    for (var i=0; i < formLength; i++) {
+      currentObj = formArray[i];
+
+      // simple text fields
+      if (currentObj.name === 'title' || 
+          currentObj.name === 'description' || 
+          currentObj.name === 'dealerInternalNotes') {
+        formData[currentObj.name] = currentObj.value;
+      }
+
+      // materials obj
+      formData['material'] = formData['material'] || {description: '', restricted: false};
+      if (currentObj.name === 'materials') {
+        formData['material'].description = currentObj.value;
+      }
+      if (currentObj.name === 'restricted' && currentObj.value === 'on') {
+        formData['material'].restricted = true;
+      }
+    }
+
+    console.dir(formData);
+
+    this.model.set(formData);
     this.model.save();
-
-    // TODO: check for error?
-
+    
     this.$editItem.toggle();
     this.render();
   },

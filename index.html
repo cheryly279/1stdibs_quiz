@@ -21,36 +21,36 @@
 
     <script type="text/template" id="item-template">
       <div class="item">
-        <%= title %> derp.
+        <%= title %>
         <a href="#" class="edit">Edit</a>
       </div>
 
-      <div class="edit-item" class="container">
+      <div id="edit-item" class="container">
         <div class="row">
           <div class="col-xs-8">
             <form id="item-form">
               <div class="form-group">
                 <label for="title">Title</label>
-                <input class="title" type="text" class="form-control" value="<%= title %>" />
+                <input id="title" name="title" type="text" class="form-control" value="<%= title %>" />
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" class="form-control" rows="10"></textarea>
+                <textarea id="description" name="description" class="form-control" rows="10"><%= description %></textarea>
               </div>
               <div class="form-group">
-                <label for="notes">Internal Notes</label>
-                <textarea id="notes" class="form-control"></textarea>
+                <label for="dealerInternalNotes">Internal Notes</label>
+                <textarea id="dealerInternalNotes" name="dealerInternalNotes" class="form-control"><%= dealerInternalNotes %></textarea>
               </div>
               <div class="form-group">
                 <label for="materials">Materials</label>
-                <select id="materials" class="form-control">
+                <select id="materials" name="materials" class="form-control">
                   <option value="value1">Value 1</option> 
                   <option value="value2" selected>Value 2</option>
                   <option value="value3">Value 3</option>
                 </select>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="restricted" id="restricted" value="restricted">Check this box if listing contains or may contain restricted materials
+                    <input type="checkbox" name="restricted" id="restricted" <% if(material.restricted) { %> checked <% } %>>Check this box if listing contains or may contain restricted materials
                   </label>
                 </div>
               </div>
@@ -81,14 +81,14 @@
                 <div class="form-group col-xs-6">
                   <label>Length:</label>
                   <div class="input-group length">
-                    <input type="text" class="form-control" disabled>
+                    <input type="text" class="form-control" name="length" disabled>
                     <span class="input-group-addon">in.</span>
                   </div>
                 </div>
                 <div class="form-group col-xs-6">
                   <label>Depth:</label>
                   <div class="input-group depth">
-                    <input type="text" class="form-control" disabled>
+                    <input type="text" class="form-control" name="depth" disabled>
                     <span class="input-group-addon">in.</span>
                   </div>
                 </div>
@@ -97,14 +97,14 @@
                 <div class="form-group col-xs-6">
                   <label>Height:</label>
                   <div class="input-group height">
-                    <input type="text" class="form-control" disabled>
+                    <input type="text" class="form-control" name="height" disabled>
                     <span class="input-group-addon">in.</span>
                   </div>
                 </div>
                 <div class="form-group col-xs-6">
                   <label>Diameter:</label>
                   <div class="input-group diameter">
-                    <input type="text" class="form-control" disabled>
+                    <input type="text" class="form-control" name="diameter" disabled>
                     <span class="input-group-addon">in.</span>
                   </div>
                 </div>

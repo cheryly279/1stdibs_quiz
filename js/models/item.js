@@ -15,7 +15,7 @@ app.Item = Backbone.Model.extend({
     dealerInternalNotes: '',
     material: {
       description: '',
-      restricted: 'N',
+      restricted: false,
     },
     measurement: {
       unit: 'in',
