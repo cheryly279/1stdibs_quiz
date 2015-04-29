@@ -59,6 +59,12 @@ app.ItemView = Backbone.View.extend({
       if (currentObj.name === 'restricted' && currentObj.value === 'on') {
         formData['material'].restricted = true;
       }
+
+      // condition obj
+      formData['condition'] = formData['condition'] || {description: ''};
+      if (currentObj.name === 'condition') {
+        formData['condition'].description = currentObj.value;
+      }
     }
 
     console.dir(formData);
@@ -103,8 +109,8 @@ app.ItemView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.itemTemplate(this.model.toJSON()));
-    this.$('#materialsContainer').html(this.materialsTemplate({materialsList: this.materialsList}));
-    this.$('#conditionsContainer').html(this.conditionsTemplate({conditionsList: this.conditionsList}));
+    this.$('#materialsContainer').html(this.materialsTemplate({materialsList: this.materialsList, materialIndex: this.materialsList.indexOf(this.model.get('material').description)}));
+    this.$('#conditionsContainer').html(this.conditionsTemplate({conditionsList: this.conditionsList, conditionIndex: this.conditionsList.indexOf(this.model.get('condition').description)}));
     return this;
   }
 });

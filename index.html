@@ -121,19 +121,23 @@
     <script type="text/template" id="materials-template">
       <label for="materials">Materials</label>
       <select id="materials" name="materials" class="form-control">
+        <% if(materialIndex < 0) { %>
+          <option disabled="disabled" selected>Select...</option>
+        <% } %>
         <% for(var i = 0, materialsLength = materialsList.length; i < materialsLength; i++) { %>
-          <option value="<%= materialsList[i] %>"><%= materialsList[i] %></option>
+          <% var currentMaterial = materialsList[i]; %>
+          <option value="<%= currentMaterial %>" <% if(i === materialIndex) { %>selected<% } %>><%= currentMaterial %></option>
         <% } %>
       </select>
     </script>
 
-    <!-- need to store current condition in a variable, add proper capitalization -->
     <script type="text/template" id="conditions-template">
       <label>Condition (Select one)</label><br />
       <% for(var i = 0, conditionsLength = conditionsList.length; i < conditionsLength; i++) { %>
+        <% var currentCondition = conditionsList[i]; %>
         <label class="radio-inline">
-          <input type="radio" name="condition" id="<%= conditionsList[i] %>" value="<%= conditionsList[i] %>">
-          <%= conditionsList[i] %>
+          <input type="radio" name="condition" id="<%= currentCondition %>" value="<%= currentCondition %>" <% if(i === conditionIndex) { %>checked<% } %>>
+          <%= currentCondition %>
         </label>
       <% } %>
     </script>
@@ -147,6 +151,5 @@
     <script src="js/views/item.js"></script>
     <script src="js/views/items.js"></script>
     <script src="js/app.js"></script>
-
   </body>
 </html>
