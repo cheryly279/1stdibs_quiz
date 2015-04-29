@@ -73,35 +73,37 @@
                   Circular
                 </label>
               </div>
-              <div class="row">
-                <div class="form-group col-xs-6">
-                  <label>Length:</label>
-                  <div class="input-group length">
-                    <input type="text" class="form-control" name="length" <% if(measurement.length != undefined) { %>value="<%= measurement.length %>"<% } %> <% if(measurement.shape != 'Rectangular') { %>disabled<% } %>>
-                    <span class="input-group-addon">in</span>
+              <div class="measurement-values">
+                <div class="row">
+                  <div class="form-group col-xs-6">
+                    <label>Length:</label>
+                    <div class="input-group length">
+                      <input type="text" class="form-control rectangular" name="length" <% if(measurement.length != undefined) { %>value="<%= measurement.length %>"<% } %> <% if(measurement.shape != 'Rectangular') { %>disabled<% } %>>
+                      <span class="input-group-addon">in</span>
+                    </div>
+                  </div>
+                  <div class="form-group col-xs-6">
+                    <label>Depth:</label>
+                    <div class="input-group depth">
+                      <input type="text" class="form-control rectangular" name="depth" <% if(measurement.depth != undefined) { %>value="<%= measurement.depth %>"<% } %> <% if(measurement.shape != 'Rectangular') { %>disabled<% } %>>
+                      <span class="input-group-addon">in</span>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group col-xs-6">
-                  <label>Depth:</label>
-                  <div class="input-group depth">
-                    <input type="text" class="form-control" name="depth" <% if(measurement.depth != undefined) { %>value="<%= measurement.depth %>"<% } %> <% if(measurement.shape != 'Rectangular') { %>disabled<% } %>>
-                    <span class="input-group-addon">in</span>
+                <div class="row">
+                  <div class="form-group col-xs-6">
+                    <label>Height:</label>
+                    <div class="input-group height">
+                      <input type="text" class="form-control rectangular" name="height" <% if(measurement.height != undefined) { %>value="<%= measurement.height %>"<% } %> <% if(measurement.shape != 'Rectangular') { %>disabled<% } %>>
+                      <span class="input-group-addon">in</span>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-xs-6">
-                  <label>Height:</label>
-                  <div class="input-group height">
-                    <input type="text" class="form-control" name="height" <% if(measurement.height != undefined) { %>value="<%= measurement.height %>"<% } %> <% if(measurement.shape != 'Rectangular') { %>disabled<% } %>>
-                    <span class="input-group-addon">in</span>
-                  </div>
-                </div>
-                <div class="form-group col-xs-6">
-                  <label>Diameter:</label>
-                  <div class="input-group diameter">
-                    <input type="text" class="form-control" name="diameter" <% if(measurement.diameter != undefined) { %>value="<%= measurement.diameter %>"<% } %> <% if(measurement.shape != 'Circular') { %>disabled<% } %>>
-                    <span class="input-group-addon">in</span>
+                  <div class="form-group col-xs-6">
+                    <label>Diameter:</label>
+                    <div class="input-group diameter">
+                      <input type="text" class="form-control circular" name="diameter" <% if(measurement.diameter != undefined) { %>value="<%= measurement.diameter %>"<% } %> <% if(measurement.shape != 'Circular') { %>disabled<% } %>>
+                      <span class="input-group-addon">in</span>
+                    </div>
                   </div>
                 </div>
               </div>

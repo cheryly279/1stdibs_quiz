@@ -92,26 +92,18 @@ app.ItemView = Backbone.View.extend({
     var $clicked = $(e.target);
 
     if ($clicked.val() === 'Rectangular') {
-      this.$('.length input').prop('disabled', false);
-      this.$('.height input').prop('disabled', false);
-      this.$('.depth input').prop('disabled', false);
-      this.$('.diameter input').prop('disabled', true);
+      this.$('.measurement-values input.rectangular').prop('disabled', false);
+      this.$('.measurement-values input.circular').prop('disabled', true);
     }
     else if ($clicked.val() === 'Circular') {
-      this.$('.length input').prop('disabled', true);
-      this.$('.height input').prop('disabled', true);
-      this.$('.depth input').prop('disabled', true);
-      this.$('.diameter input').prop('disabled', false);
+      this.$('.measurement-values input.rectangular').prop('disabled', true);
+      this.$('.measurement-values input.circular').prop('disabled', false);
     }
   },
 
   updateUnit: function(e) {
     var $clicked = $(e.target);
-
-    this.$('.length span').text($clicked.val());
-    this.$('.height span').text($clicked.val());
-    this.$('.depth span').text($clicked.val());
-    this.$('.diameter span').text($clicked.val());
+    this.$('.measurement-values span').text($clicked.val());
   },
 
   deleteItem: function() {
