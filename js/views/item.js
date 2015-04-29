@@ -65,6 +65,17 @@ app.ItemView = Backbone.View.extend({
       if (currentObj.name === 'condition') {
         formData['condition'].description = currentObj.value;
       }
+
+      // measurement obj
+      formData['measurement'] = formData['measurement'] || {unit: 'in', shape: ''};
+      if (currentObj.name === 'unit') {
+        formData['measurement'].unit = currentObj.value;
+      }
+      if (currentObj.name === 'shape') {
+        formData['measurement'].shape = currentObj.value;
+      }
+
+
     }
 
     console.dir(formData);
@@ -79,13 +90,13 @@ app.ItemView = Backbone.View.extend({
   updateShape: function(e) {
     var $clicked = $(e.target);
 
-    if ($clicked.val() === 'rectangle') {
+    if ($clicked.val() === 'Rectangular') {
       this.$('.length input').prop('disabled', false);
       this.$('.height input').prop('disabled', false);
       this.$('.depth input').prop('disabled', false);
       this.$('.diameter input').prop('disabled', true);
     }
-    else if ($clicked.val() === 'circle') {
+    else if ($clicked.val() === 'Circular') {
       this.$('.length input').prop('disabled', true);
       this.$('.height input').prop('disabled', true);
       this.$('.depth input').prop('disabled', true);

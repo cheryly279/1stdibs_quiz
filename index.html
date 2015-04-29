@@ -54,22 +54,22 @@
               <div class="form-group">
                 Measurements are in: 
                 <label class="radio-inline">
-                  <input type="radio" name="unit" value="in." checked>
+                  <input type="radio" name="unit" value="in" <% if(measurement.unit === 'in') { %>checked<% } %>>
                   Inches (in)
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="unit" value="cm.">
+                  <input type="radio" name="unit" value="cm" <% if(measurement.unit === 'cm') { %>checked<% } %>>
                   Centimeters (cm)
                 </label>
               </div>
               <div class="form-group">
                 Measured item is: 
                 <label class="radio-inline">
-                  <input type="radio" name="shape" value="rectangle">
+                  <input type="radio" name="shape" value="Rectangular" <% if(measurement.shape === 'Rectangular') { %>checked<% } %>>
                   Rectangular
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="shape" value="circle">
+                  <input type="radio" name="shape" value="Circular" <% if(measurement.shape === 'Circular') { %>checked<% } %>>
                   Circular
                 </label>
               </div>
@@ -78,14 +78,14 @@
                   <label>Length:</label>
                   <div class="input-group length">
                     <input type="text" class="form-control" name="length" disabled>
-                    <span class="input-group-addon">in.</span>
+                    <span class="input-group-addon">in</span>
                   </div>
                 </div>
                 <div class="form-group col-xs-6">
                   <label>Depth:</label>
                   <div class="input-group depth">
                     <input type="text" class="form-control" name="depth" disabled>
-                    <span class="input-group-addon">in.</span>
+                    <span class="input-group-addon">in</span>
                   </div>
                 </div>
               </div>
@@ -94,14 +94,14 @@
                   <label>Height:</label>
                   <div class="input-group height">
                     <input type="text" class="form-control" name="height" disabled>
-                    <span class="input-group-addon">in.</span>
+                    <span class="input-group-addon">in</span>
                   </div>
                 </div>
                 <div class="form-group col-xs-6">
                   <label>Diameter:</label>
                   <div class="input-group diameter">
                     <input type="text" class="form-control" name="diameter" disabled>
-                    <span class="input-group-addon">in.</span>
+                    <span class="input-group-addon">in</span>
                   </div>
                 </div>
               </div>
