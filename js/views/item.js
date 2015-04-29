@@ -74,8 +74,9 @@ app.ItemView = Backbone.View.extend({
       if (currentObj.name === 'shape') {
         formData['measurement'].shape = currentObj.value;
       }
-
-
+      if (currentObj.name === 'length' || currentObj.name === 'depth' || currentObj.name === 'height' || currentObj.name === 'diameter') {
+        formData['measurement'][currentObj.name] = currentObj.value;
+      }
     }
 
     console.dir(formData);
